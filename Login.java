@@ -1,4 +1,4 @@
-/*import javax.swing.*;
+import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import static javax.swing.Action.DEFAULT;
 
 
-public class Login extends JFrame implements ActionListener {
+public class Login extends JFrame  implements ActionListener{
 
         JLabel l1,l2,l3;
         JTextField tf1;
@@ -17,7 +17,7 @@ public class Login extends JFrame implements ActionListener {
         Login(){
             setTitle("AUTOMATED TELLER MACHINE");
 
-            ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("credit-card.png"));
+            ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/credit-card.png"));
             Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
             ImageIcon i3 = new ImageIcon(i2);
             JLabel l11 = new JLabel(i3);
@@ -25,12 +25,12 @@ public class Login extends JFrame implements ActionListener {
             add(l11);
 
             l1 = new JLabel("WELCOME TO ATM");
-            l1.setFont(new Font("Osward", Font.BOLD, 38));
+            l1.setFont(new Font("Onward", Font.BOLD, 38));
             l1.setBounds(200,40,450,40);
             add(l1);
 
             l2 = new JLabel("Card No:");
-            l2.setFont(new Font("Raleway", Font.BOLD, 28));
+            l2.setFont(new Font("Rale way", Font.BOLD, 28));
             l2.setBounds(125,150,375,30);
             add(l2);
 
@@ -75,7 +75,7 @@ public class Login extends JFrame implements ActionListener {
             b3.setBounds(300,350,230,30);
             add(b3);
 
-            b1.addActionListener(this);
+           b1.addActionListener(this);
             b2.addActionListener(this);
             b3.addActionListener(this);
 
@@ -87,34 +87,24 @@ public class Login extends JFrame implements ActionListener {
 
         }
         public void actionPerformed(ActionEvent ae){
-            try{
-                if(ae.getSource()==b1){
-                    Conn c1 = new Conn();
-                    String cardno  = tf1.getText();
-                    String pin  = pf2.getText();
-                    String q  = "select * from login where cardno = '"+cardno+"' and pin = '"+pin+"'";
-
-                    ResultSet rs = c1.s.executeQuery(q);
-                    if(rs.next()){
-                        setVisible(false);
-                        new Transactions(pin).setVisible(true);
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
-                    }
-                }else if(ae.getSource()==b2){
+            try {
+                if (ae.getSource() == b2) {
                     tf1.setText("");
                     pf2.setText("");
-                }else if(ae.getSource()==b3){
-                    setVisible(false);
-                    new Signup().setVisible(true);
+                } else if (ae.getSource() == b2) {
                 }
-            }catch(Exception e){
-                e.printStackTrace();
+                        else if (ae.getSource() == b3){
+                    }
+
+            }
+
+            catch(Exception e){
+                System.out.println(e);
             }
         }
         public static void main(String[] args){
-            new Login().setVisible(true);
+            new Login();
         }
 
 
-    }*/
+    }
