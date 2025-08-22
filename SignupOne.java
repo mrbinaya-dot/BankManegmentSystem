@@ -217,7 +217,8 @@ public class SignupOne extends JFrame implements ActionListener {
         getContentPane().setBackground(Color.WHITE);
 
         setSize(850, 800);
-        setLocation(500, 120);
+        setLocation(300, 20);
+
         setVisible(true);
     }
 
@@ -248,19 +249,25 @@ public class SignupOne extends JFrame implements ActionListener {
         String city = t5.getText();
         String pincode = t6.getText();
         String state = t7.getText();
+        if (t6.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fill all the required fields");
+        }
+        else if(ae.getSource()==b){
+            setVisible(false);
+            new Signup2("").setVisible(true);
+        }
 
 
-        try{
+        try {
 
-            if(t6.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Fill all the required fields");
-            }else{
                 Conn c1 = new Conn();
-                String q1 = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pincode+"','"+state+"')";
+                String q1 = "insert into signup values('" + formno + "','" + name + "','" + fname + "','" + dob + "','" + gender + "','" + email + "','" + marital + "','" + address + "','" + city + "','" + pincode + "','" + state + "')";
                 c1.s1.executeUpdate(q1);
 
 
-            }
+
+
+
 
         }catch(Exception e){
             System.out.println(e);

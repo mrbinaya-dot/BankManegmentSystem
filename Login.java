@@ -63,6 +63,7 @@ public class Login extends JFrame  implements ActionListener{
 
             setLayout(null);
 
+
             b1.setFont(new Font("Arial", Font.BOLD, 14));
             b1.setBounds(300,300,100,30);
             add(b1);
@@ -85,24 +86,32 @@ public class Login extends JFrame  implements ActionListener{
             setLocation(550,200);
             setVisible(true);
 
+
+
         }
         public void actionPerformed(ActionEvent ae){
             try {
                 if (ae.getSource() == b2) {
                     tf1.setText("");
                     pf2.setText("");
-                } else if (ae.getSource() == b2) {
-                }
-                        else if (ae.getSource() == b3){
-                    }
+                } else if (ae.getSource() == b1) {
 
+                } else if (ae.getSource() == b3) {
+                    setVisible(false);
+                    new SignupOne().setVisible(true);
+
+
+                }
             }
 
-            catch(Exception e){
+            catch (Exception e){
                 System.out.println(e);
             }
         }
-        public static void main(String[] args){
+
+
+
+    public static void main(String[] args){
             new Login();
         }
 
