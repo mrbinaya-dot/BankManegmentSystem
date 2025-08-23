@@ -12,7 +12,7 @@ public class Signup2 extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13;
     JButton b;
     JRadioButton r1,r2,r3,r4;
-    JTextField t1,t2,t3;
+    JTextField t1,t2;
     JComboBox c1,c2,c3,c4,c5;
     String formno;
      public Signup2(String formno){
@@ -232,10 +232,19 @@ public class Signup2 extends JFrame implements ActionListener{
             eaccount = "No";
         }
 
+
         try{
                 Conn nn = new Conn();
-            String q1 = "insert into signup3 values('"+formno+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eaccount+"')";
-            nn.s1.executeQuery(q1);
+            String q1 = "insert into signup3 values ('"+formno+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"')";
+            nn.s1.executeUpdate(q1);
+            if(ae.getSource()==b){
+                setVisible(false);
+                new SignupThree("");
+            }
+
+
+
+
 
 
 
@@ -248,6 +257,7 @@ public class Signup2 extends JFrame implements ActionListener{
 
 
     public static void main(String[] args){
-        new Signup2("");
+
+         new Signup2("");
     }
 }
