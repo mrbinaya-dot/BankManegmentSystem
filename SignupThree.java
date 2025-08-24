@@ -191,7 +191,10 @@ public class SignupThree extends JFrame implements ActionListener {
         try {
             Conn c11 = new Conn();
             String q2 = "insert into signup4 values('" + formno + "','" + atype + "','" + cardno + "','" + pin + "','" + facility + "')";
-            c11.s1.executeUpdate(q2);  // FIXED
+            c11.s1.executeUpdate(q2);
+            String q3 = "insert into Login values('"+cardno+"','"+pin+"')";
+            c11.s1.executeUpdate(q3);
+      // FIXED
             JOptionPane.showMessageDialog(null, "Account Created Successfully!\nCard No: " + cardno + "\nPIN: " + pin);
             setVisible(false);
             // Navigate to next page or close

@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import static javax.swing.Action.DEFAULT;
 
@@ -95,6 +96,25 @@ public class Login extends JFrame  implements ActionListener{
                     tf1.setText("");
                     pf2.setText("");
                 } else if (ae.getSource() == b1) {
+                    String cos_id= tf1.getText();
+                    String cos_pin= pf2.getText();
+                try {
+                    Conn c1 = new Conn();
+                    String query = "Select * from login Where customer_id='" + cos_id + "' and customer_pin = '" + cos_pin + "'";
+                    ResultSet r1=c1.s1.executeQuery(query);
+                    if(r1.next()){
+                        setVisible(false);
+                        new Transaction().setVisible(true);
+                    }else{
+                        JOptionPane.showMessageDialog(null,"incorrect information");
+                    }
+
+
+
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
+
 
                 } else if (ae.getSource() == b3) {
                     setVisible(false);
