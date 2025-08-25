@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 
-public class Deposit extends JFrame implements ActionListener {
+public class Withdrawl extends JFrame implements ActionListener {
     JButton b, b1;
     JTextField jt1;
     String cos_pin;
 
-    Deposit(String cos_pin) {
+    Withdrawl(String cos_pin) {
         this.cos_pin = cos_pin;
 
 
@@ -21,7 +21,7 @@ public class Deposit extends JFrame implements ActionListener {
         l2.setBounds(0, 0, 900, 900);
         add(l2);
 
-        JLabel j1 = new JLabel("Enter the amount you want to deposit");
+        JLabel j1 = new JLabel("Enter the amount you want to Withdraw");
         j1.setForeground(Color.white);
         j1.setFont(new Font("System", Font.BOLD, 16));
         j1.setBounds(200, 300, 700, 30);
@@ -41,10 +41,10 @@ public class Deposit extends JFrame implements ActionListener {
         l2.add(b);
         b.addActionListener(this);
 
-        b1 = new JButton("Deposit");
-        b1.setFont(new Font("System", Font.BOLD, 14));
+        b1 = new JButton("Withdraw");
+        b1.setFont(new Font("System", Font.BOLD, 11));
         b1.setBackground(Color.ORANGE);
-        b1.setForeground(Color.BLACK);
+        b1.setForeground(Color.black);
         b1.setBounds(400, 400, 90, 30);
         l2.add(b1);
         b1.addActionListener(this);
@@ -68,9 +68,9 @@ public class Deposit extends JFrame implements ActionListener {
             } else {
                 try {
                     Conn c1 = new Conn();
-                    String q1 = "INSERT into Bank values('" + cos_pin + "','" + date + "','Deposit','" + number + "')";
+                    String q1 = "INSERT into Bank values('" + cos_pin + "','" + date + "','withdrawl','" + number + "')";
                     c1.s1.executeUpdate(q1);
-                    JOptionPane.showMessageDialog(null, "Given Amount Deposited");
+                    JOptionPane.showMessageDialog(null, "Given Amount Withdrawl");
                     new Transaction("").setVisible(true);
                     setVisible(false);
 
@@ -93,10 +93,10 @@ public class Deposit extends JFrame implements ActionListener {
     }
 
 
-        public static void main (String[]args){
-            new Deposit("");
+    public static void main (String[]args){
+        new Withdrawl("");
 
-        }
     }
+}
 
 
