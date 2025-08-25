@@ -104,7 +104,7 @@ public class Login extends JFrame  implements ActionListener{
                     ResultSet r1=c1.s1.executeQuery(query);
                     if(r1.next()){
                         setVisible(false);
-                        new Transaction().setVisible(true);
+                        new Transaction(cos_pin).setVisible(true);
                     }else{
                         JOptionPane.showMessageDialog(null,"incorrect information");
                     }

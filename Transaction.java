@@ -3,15 +3,14 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.sql.*;
 
 public class Transaction extends JFrame implements ActionListener{
 
     JLabel l1;
     JButton b1,b2,b3,b4,b5,b6,b7;
-    String pin;
-    Transaction(){
-
+    String cos_pin;
+    Transaction(String cos_pin){
+        this.cos_pin = cos_pin;
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
         Image i2 = i1.getImage().getScaledInstance(800, 900, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -38,24 +37,33 @@ public class Transaction extends JFrame implements ActionListener{
         l2.add(l1);
 
         b1.setBounds(190,350,130,35);
+        b1.setFont(new Font("System",Font.BOLD,10));
+
         l2.add(b1);
 
         b2.setBounds(380,350,130,35);
+        b2.setFont(new Font("System",Font.BOLD,10));
+
+
         l2.add(b2);
 
         b3.setBounds(190,400,130,35);
+        b3.setFont(new Font("System",Font.BOLD,10));
         l2.add(b3);
 
         b4.setBounds(380,400,130,35);
+        b4.setFont(new Font("System",Font.BOLD,10));
         l2.add(b4);
 
         b5.setBounds(190,450,130,35);
+        b5.setFont(new Font("System",Font.BOLD,10));
         l2.add(b5);
 
-        b6.setBounds(370,450,140,35);
+        b6.setBounds(380,450,130,35);
+        b6.setFont(new Font("System",Font.BOLD,10));
         l2.add(b6);
 
-        b7.setBounds(300,500,150,35);
+        b7.setBounds(300,500,110,35);
         l2.add(b7);
 
 
@@ -82,6 +90,10 @@ public class Transaction extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent ae){
+        if (ae.getSource()==b1){
+            setVisible(false);
+            new Deposit(cos_pin).setVisible(true);
+        }
 
        if(ae.getSource()==b7){
             System.exit(0);
@@ -89,6 +101,6 @@ public class Transaction extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args){
-        new Transaction();
+        new Transaction("");
     }
 }

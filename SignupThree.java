@@ -197,9 +197,11 @@ public class SignupThree extends JFrame implements ActionListener {
       // FIXED
             JOptionPane.showMessageDialog(null, "Account Created Successfully!\nCard No: " + cardno + "\nPIN: " + pin);
             setVisible(false);
+            new Deposit("").setVisible(true);
             // Navigate to next page or close
         } catch (Exception e) {
             System.out.println("Database Error: " + e);
+
         }
     }
 
