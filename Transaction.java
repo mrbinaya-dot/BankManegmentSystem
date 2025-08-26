@@ -103,6 +103,11 @@ public class Transaction extends JFrame implements ActionListener{
             new QuickCash(cos_pin).setVisible(true);
         }
 
+        if (ae.getSource()==b5){
+            setVisible(false);
+            new PinChange(cos_pin).setVisible(true);
+        }
+
        if(ae.getSource()==b7){
             System.exit(0);
         }
