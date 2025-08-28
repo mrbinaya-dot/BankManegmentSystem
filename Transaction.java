@@ -102,6 +102,10 @@ public class Transaction extends JFrame implements ActionListener{
             setVisible(false);
             new QuickCash(cos_pin).setVisible(true);
         }
+        if (ae.getSource()==b4){
+            setVisible(false);
+            new MiniStatement(cos_pin).setVisible(true);
+        }
 
         if (ae.getSource()==b5){
             setVisible(false);
