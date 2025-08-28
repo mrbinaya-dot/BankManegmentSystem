@@ -107,6 +107,10 @@ public class Transaction extends JFrame implements ActionListener{
             setVisible(false);
             new PinChange(cos_pin).setVisible(true);
         }
+        if (ae.getSource()==b6){
+            setVisible(false);
+            new BalanceEquiry(cos_pin).setVisible(true);
+        }
 
        if(ae.getSource()==b7){
             System.exit(0);

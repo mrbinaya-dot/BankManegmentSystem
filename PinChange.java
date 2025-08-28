@@ -104,6 +104,8 @@ public class PinChange extends JFrame implements ActionListener {
                 c1.s1.executeUpdate(q2);
                 c1.s1.executeUpdate(q3);
                 JOptionPane.showMessageDialog(null, "pin change sucessful ");
+                setVisible(false);
+                new Transaction("rpin").setVisible(true);
 
 
 
